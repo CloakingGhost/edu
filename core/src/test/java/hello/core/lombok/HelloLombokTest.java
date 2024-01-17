@@ -1,18 +1,12 @@
 package hello.core.lombok;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-@Getter
-@Setter
-@ToString
-public class HelloLombok {
 
-    private String name;
-    private int age;
-
-    public static void main(String[] args) {
+class HelloLombokTest {
+    @Test
+    void lombokTest() {
         HelloLombok helloLombok = new HelloLombok();
         helloLombok.setName("specialName");
 
@@ -20,5 +14,7 @@ public class HelloLombok {
         System.out.println("name = " + name);
 
         System.out.println("helloLombok = " + helloLombok);
+
+        Assertions.assertThat(name).isEqualTo("specialName");
     }
 }

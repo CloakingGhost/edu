@@ -28,10 +28,21 @@
 * final 사용으로 코드 누락 방지
 * 생성자 주입을 기본으로 하고 옵션이 필요할 경우 setter 사용
 
-### 7.4 lombok
+### 7.4, 7.5 lombok
 1. 의존성 주입
 2. plugin lombok 설치
 3. setting - Annotation Processors - enable annotation processing 활성화
 
 * @RequiredArgsConstructor
   * final 키워드가 있는 필드로 생성자를 만들어 준다
+* 우선순위: @Qualifier > @Primary
+  * @Qualifier: 상세하게 지정하기 때문
+* @Qualifier
+  * 빈에 이름을 지정하여 생성자 주입에 사용하게 된다
+  * @RequiredArgsConstructor 삭제 해야한다
+  * @Qualifier 끼리 매칭해서 사용해야한다
+    * 이름을 못찾으면 다음으로 빈을 찾기 때문
+* @Primary
+  * 등록된 빈이 2개 이상일 경우 우선순위를 주어 충돌을 방지할 수 있다
+
+자주 사용하는 빈은 @Primary, 가끔 사용하는 빈은 @Qualifier
