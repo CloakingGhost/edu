@@ -28,7 +28,7 @@
 * final 사용으로 코드 누락 방지
 * 생성자 주입을 기본으로 하고 옵션이 필요할 경우 setter 사용
 
-### 7.4, 7.5 lombok
+### 7.4, 7.5, 7.6 lombok
 1. 의존성 주입
 2. plugin lombok 설치
 3. setting - Annotation Processors - enable annotation processing 활성화
@@ -47,9 +47,22 @@
 
 자주 사용하는 빈은 @Primary, 가끔 사용하는 빈은 @Qualifier
 
-### 7.6 @Qualifier
+### 7.7 @Qualifier
+* MainDiscountPolicy
+
 어노테이션을 생성하여 @Qualifier 지정 후 필요한 곳에 사용할 수 있다
 @Qualifier 안에 문자열 오타 시 에러가 나오지 않고 실행시 나타난다
 어노테이션 이름은 오타 발생 시 오류를 보여주기에 실수 방지가 가능하다
 
 가능하면 스프링의 기능을 활용하는 것을 권장
+
+### 7.8 List, Map 활용
+* AllBeanTest  
+
+동적으로 빈을 활용할 때 좋다
+컨테이너에 인터페이스로 구현된 모든 구현체를 컬렉션으로 받아 원하는 구현체를 가져온다
+
+### 7.9 수동 등록 VS 자동 등록
+1. 자동 기능을 기본
+2. AOP 수동
+3. 다형성 활용하는 비지니스 로직 수동 고려
