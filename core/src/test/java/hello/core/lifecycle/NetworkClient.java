@@ -1,9 +1,11 @@
 package hello.core.lifecycle;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
-public class NetworkClient implements InitializingBean, DisposableBean {
+public class NetworkClient {
     private String url;
 
 
@@ -31,8 +33,8 @@ public class NetworkClient implements InitializingBean, DisposableBean {
         System.out.println("close: " + url);
     }
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
+    @PostConstruct
+    public void init() throws Exception {
         System.out.println("NetworkClient.afterPropertiesSet");
         //객체 생성 -> 의존관계 주입 후 초기화
         connect();
@@ -40,8 +42,8 @@ public class NetworkClient implements InitializingBean, DisposableBean {
 
     }
 
-    @Override
-    public void destroy() throws Exception {
+    @PreDestroy
+    public void close() throws Exception {
         // 객체 소멸 시
         disconnect();
 
