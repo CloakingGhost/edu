@@ -78,5 +78,13 @@ __스프링 빈의 이벤트 라이프사이클__
 초기화 작업이란 어플리케이션에 의존관계 주입 후 실제 기능을 하기위한 필요 값들을 설정하는 과정이다
 과정 속에서 외부에 값을 시작으로 할 때 생성자에 넣지 말고 객체 생성 후 별도의 작업으로 만들어야 유지보수에 용이하다
 ### 8.2 인터페이스 InitializingBean, DisposableBean
+__스프링 초창기에 나온 방법__
+* InitializingBean
+  * 의존관계 주입 후 초기화를 진행
+  * void afterPropertiesSet()
+* DisposableBean
+  * 객체 소멸 직전에 사용 됨
+  * void destroy()
+
 ### 8.3 빈 등록 초기화, 소멸 메소드
 ### 8.4 애노테이션 @PostConstruct, @PreDestroy
