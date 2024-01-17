@@ -29,3 +29,9 @@
 * 생성자 주입을 기본으로 하고 옵션이 필요할 경우 setter 사용
 
 ### 7.4 lombok
+1. 의존성 주입
+2. plugin lombok 설치
+3. setting - Annotation Processors - enable annotation processing 활성화
+
+* @RequiredArgsConstructor
+  * final 키워드가 있는 필드로 생성자를 만들어 준다
