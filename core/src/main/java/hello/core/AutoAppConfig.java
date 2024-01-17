@@ -23,10 +23,10 @@ public class AutoAppConfig {
      * 자동으로 스프링 빈으로 등록하는 @Component를 사용했기 때문이다
      * 따라서, 의존관계 주입이 필요한 필드에 @Autowired 붙힌다*/
 
-    @Bean(name = "memoryMemberRepository")
-    public MemberRepository memberRepository() {
-        return new MemoryMemberRepository();
-    }
+//    @Bean(name = "memoryMemberRepository")
+//    public MemberRepository memberRepository() {
+//        return new MemoryMemberRepository();
+//    }
 
     /*테스트 시에 오버라이딩이 되었다는 문구를 확인할 수 있다
     * 그러나 이런 설정들이 꼬이게 되면 찾기 힘들 버그를 만들어 낼수 있다
