@@ -21,7 +21,7 @@ public class AutoAppConfig {
     /*@ComponentScan을 사용하면
      * Service, Repository 등등 의존관계 주입을 설정할 수 없다
      * 자동으로 스프링 빈으로 등록하는 @Component를 사용했기 때문이다
-     * 따라서, 의존관계 주입이 필요한 필드에 @Autowired 붙힌다*/
+     * 의존관계 주입이 필요한 필드에 @Autowired 붙힌다*/
 
 //    @Bean(name = "memoryMemberRepository")
 //    public MemberRepository memberRepository() {

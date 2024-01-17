@@ -51,7 +51,7 @@ public class SingletonTest {
         //2. 조회 : 호출할 때 마다 객체를 생성
         MemberService memberService2 = ac.getBean("memberService", MemberService.class);
 
-        //참조값 다른 것을 확인
+        //참조값 같은 것을 확인
         System.out.println("memberService1 = " + memberService1);
         System.out.println("memberService2 = " + memberService2);
 

@@ -1,6 +1,6 @@
 ## 7. 의존관계 자동 주입
 
-* OrderServiceImpl로 Test
+* OrderServiceImpl
 
 ### 7.1 다양한 의존 관계 주입 방법
 
@@ -36,6 +36,9 @@
 * 생성자 주입을 기본으로 하고 옵션이 필요할 경우 setter 사용
 
 ### 7.4, 7.5, 7.6 lombok
+
+* HelloLombok
+* HelloLombokTest
 
 1. 의존성 주입
 2. plugin lombok 설치
@@ -75,10 +78,13 @@
 ### 7.9 수동 등록 VS 자동 등록
 
 1. 자동 기능을 기본
-2. AOP 수동
-3. 다형성 활용하는 비지니스 로직 수동 고려
+2. AOP: 수동
+3. 다형성 활용하는 비지니스 로직: 수동 고려
 
 ## 8. 빈 생명주기 콜백
+
+* NetworkClient
+* BeanLifeCycleTest
 
 ### 8.1 빈 생명주기 콜백 시작
 
@@ -103,6 +109,7 @@ __스프링 초창기에 나온 방법__
     * void destroy()
 
 ### 8.3 빈 등록 초기화, 소멸 메소드
+
 1. 초기화 메소드, 소멸 메소드 만들기
 2. @Bean(initMethod = "init", destroyMethod = "close")와 같이 옵션으로 함수 이름을 넣어준다
 
@@ -111,11 +118,12 @@ __스프링 초창기에 나온 방법__
 * 외부 라이브러리 사용 시 이 방법을 활용하자
 
 ### 8.4 애노테이션 @PostConstruct, @PreDestroy
+
 스프링에서 권장하는 방법이다
 현재는 이 방법으로 많이 사용된다
-스프링을 의존하는 것이 아니라 자바에서 지원하는 기능이다 
+스프링을 의존하는 것이 아니라 자바에서 지원하는 기능이다
 
 1. 초기화 메소드, 소멸 메소드 만들기
 2. 애노테이션 사용
-   * @PostConstruct: 초기화
-   * @PreDestroy: 소멸
+    * @PostConstruct: 초기화
+    * @PreDestroy: 소멸
