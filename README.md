@@ -1,20 +1,3 @@
-[티스토리][rul1]<br><br>
-
-
-
-1. [스프링 가볍게 느껴보자][rul2]
-2. [스프링 기본][rul3]
-
-
-
-
-
-
-
-
-
-
-[rul1]:https://cloakinghost.tistory.com{: target="_blank"}
-[rul2]:https://cloakinghost.tistory.com/64{: target="_blank"}
-[rul3]:https://github.com/CloakingGhost/edu/blob/master/core/SURMMARY.md{: target="_blank"}
-   
+### <a href="https://cloakinghost.tistory.com" title="tistory" target="_blank">티스토리</a><br><br>
+1. <a href="https://cloakinghost.tistory.com/64" title="tistory" target="_blank">스프링 가볍게 느껴보자</a>
+2. <a href="https://github.com/CloakingGhost/edu/blob/master/core/SURMMARY.md" title="tistory" target="_blank">스프링의 핵심</a>
