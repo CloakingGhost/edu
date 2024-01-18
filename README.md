@@ -14,7 +14,7 @@
 
 
 
-[rul1]:https://cloakinghost.tistory.com
-[rul2]:https://cloakinghost.tistory.com/64
-[rul3]:https://github.com/CloakingGhost/edu/blob/master/core/SURMMARY.md
+[rul1]:https://cloakinghost.tistory.com{: target="_blank"}
+[rul2]:https://cloakinghost.tistory.com/64{: target="_blank"}
+[rul3]:https://github.com/CloakingGhost/edu/blob/master/core/SURMMARY.md{: target="_blank"}
    
