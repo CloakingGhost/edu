@@ -17,7 +17,12 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
-    implementation 'jakarta.inject:jakarta.inject-api:2.0.1' // 프로토타입 스코프 provider
+
+    // web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // 스프링부트3.0 이상, 프로토타입 스코프 provider
+    implementation 'jakarta.inject:jakarta.inject-api:2.0.1'
 
     //lombok 라이브러리 추가 시작
     compileOnly 'org.projectlombok:lombok'
