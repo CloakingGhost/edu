@@ -1,5 +1,7 @@
+codingtest/CodingTest[ALL_IN_ONE].pdf
 hello-spring/
 !README.md
+
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
