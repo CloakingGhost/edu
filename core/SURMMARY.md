@@ -161,8 +161,33 @@ __스프링 초창기에 나온 방법__
 > DL: Dependency Lookup
 
 * 스프링 의존: ObjectProvider, FactoryProvider
-  * ObjectProvider 편의 기능이 많다
+    * ObjectProvider 편의 기능이 많다
 * 자바 표준: jakarta.inject.Provider(라이브러리 추가필요)
-  * 단순하다
+    * 단순하다
+
+> Provider: 컨테이너에서 조회한 빈을 찾아준다
 
 사실 프로토타입 스코프는 잘 쓰이지 않는다
+
+### 9.4 Web Scope
+
+> 특별한 스코프는 꼭 필요할 때 사용해야한다
+
+__종류__
+
+* request
+* session
+* application
+* websocket
+
+클라이언트의 요청이 있을 때 생성, <br>
+싱글톤 스코프에 이 스코프의 의존주입 시 초기 외부요청이 없어 에러 발생<br>
+
+__해결방법__
+
+1. ObjectProvider<T> t;
+2. @Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
+    * 인터페이스: ScopedProxyMode.INTERFACES
+    * 인터페이스 외: ScopedProxyMode.TARGET_CLASS 
+
+
