@@ -135,7 +135,7 @@ __스프링 초창기에 나온 방법__
 
 ### 9.1 Singleton, Prototype
 
-> SingletonTest, PrototypeTest, SingletonWithPrototypeTest1
+> SingletonTest, PrototypeTest, SingletonWithPrototypeTest
 
 * Singleton
     * 스프링 컨테이너 생성시 초기화 메소드 호출

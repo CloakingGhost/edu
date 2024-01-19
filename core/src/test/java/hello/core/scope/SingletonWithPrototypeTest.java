@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Scope;
 
-public class SingletonWithPrototypeTest1 {
+public class SingletonWithPrototypeTest {
 
     @Test
     void prototypeFind() {
