@@ -2,6 +2,7 @@
 
 1. [스프링 가볍게 느껴보자][url2]
 2. [스프링 기본][url3]
+3. [알고리즘][url4]
 
 
 
@@ -14,4 +15,5 @@
 
 [url1]:https://cloakinghost.tistory.com
 [url2]:https://cloakinghost.tistory.com/64
-[url3]:https://github.com/CloakingGhost/edu/blob/master/core/SURMMARY.md
+[url3]:https://github.com/CloakingGhost/edu/blob/master/core
+[url4]:https://github.com/CloakingGhost/edu/tree/master/python/algorithm
