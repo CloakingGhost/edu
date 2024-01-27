@@ -25,5 +25,25 @@ for website in websites:
 
 
 print(results)
-    
-    
+'''
+        #내가 보낸 request 객체에 접근 가능
+        print(response.request)
+
+        # 응답 코드
+        print(response.status_code)
+
+        # 200 (OK 코드)이 아닌 경우 에러 raise
+        print(response.raise_for_status())
+
+        # json response일 경우 딕셔너리 타입으로 바로 변환
+        print(response.json())
+
+        # content 속성을 통해 바이너리 타입으로 데이터를 받을 수 있다.
+        print(response.content)
+
+        # text 속성을 통해 UTF-8로 인코딩된 문자열을 받을 수 있다.
+        print(response.text)
+
+        # encoding 정보 확인
+        print(response.encoding)    
+'''
