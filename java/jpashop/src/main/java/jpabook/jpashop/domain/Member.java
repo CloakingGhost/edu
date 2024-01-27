@@ -19,7 +19,10 @@ public class Member {
     @Embedded
     private Address address;
 
+//  연관관계의 주인 member
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
+
+
 
 }
