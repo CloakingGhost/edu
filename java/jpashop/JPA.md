@@ -24,3 +24,7 @@ cascade
 @Autowired는 생성자에 사용, 생성자가 1개면 생략해도 됨
 lombok이 있다면 final 키워드가 있는 필드를 추적하여 생성자 주입을 시켜주는
 @RequiredArgsConstructor 사용을 권장
+
+test - resources - application.yml
+해당 경로에 설정파일을 만들어 놓으면 스프링 부트는 외부 DB 실행 없이도 테스트 가능하도록 자동화 되어있다.
+사용하려는 DB 의존성이 준비되어있어야 한다.
