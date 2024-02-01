@@ -40,7 +40,7 @@ def get_pagies(url):
 target = 'https://weworkremotely.com/remote-full-time-jobs'
 
 total_pages = get_pagies(f'{target}?page=1')
-for _ in range(total_pages):
-    url = f'{target}?page={_ + 1}'
+for x in range(total_pages):
+    url = f'{target}?page={x + 1}'
     scrape_page(url)
 print(len(all_jobs))

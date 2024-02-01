@@ -18,18 +18,16 @@
             <table role="grid">
                 <thead>
                     <tr>
-                        <th>Position</th>
-                        <th>company</th>
-                        <th>Location</th>
+                        <th>Title</th>
+                        <th>Company</th>
                         <th>Link</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for job in jobs %}
                     <tr>
-                        <td>{{job.position}}</td>
+                        <td>{{job.title}}</td>
                         <td>{{job.company}}</td>
-                        <td>{{job.location}}</td>
                         <td><a href="{{job.link}}" target="_blank">Apply now &rarr;</a></td>
                     </tr>
                     {% endfor %}

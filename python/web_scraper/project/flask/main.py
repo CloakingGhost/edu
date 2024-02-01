@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, redirect, send_file
-from extractors.indeed import extract_indeed_jobs
-from extractors.wwr import extract_wwr_jobs
+from extractors.web3 import web3
+from extractors.berlin import Scraper
 from file import save_to_file
 
-app = Flask("JobScrapper")
+app = Flask(__name__)
 
 db = {}
 
@@ -19,10 +19,11 @@ def search():
     if keyword in db:
         jobs = db[keyword]
     else:
-        indeed = extract_indeed_jobs(keyword)
-        wwr = extract_wwr_jobs(keyword)
-        jobs = indeed + wwr
-        print(jobs)
+        s = Scraper()
+        s.set_skills([keyword])
+        berlin = s.get_jobs()
+        web3_ = web3(keyword)
+        jobs = berlin + web3_
         db[keyword] = jobs
     return render_template("search.html", keyword = keyword, jobs = jobs)
 
@@ -33,6 +34,12 @@ def export():
         return redirect('/')
     if keyword not in db:
         return redirect(f'/search?keyword={keyword}')
-    save_to_file(keyword, db[keyword])
+    jobs = db[keyword]
+    print(jobs)
+    save_to_file(keyword, jobs)
     return send_file(f"{keyword}.csv", as_attachment=True)
-app.run()
+
+
+if __name__ == "__main__":
+    app.run()
+
