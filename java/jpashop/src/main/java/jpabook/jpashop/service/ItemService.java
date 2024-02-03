@@ -27,4 +27,13 @@ public class ItemService {
     public Item findOne(Long itemId) {
         return itemRepository.findOne(itemId);
     }
+
+    @Transactional
+    // 변경감지를 사용하여 엔티티 값 변경
+    public void updateItem(Long id, String name, int price, int stockQuantity) {
+        Item item = itemRepository.findOne(id);
+        item.setPrice(price);
+        item.setStockQuantity(stockQuantity);
+        // 메소드 종료시 커밋이 일어나 값이 변경 됨
+    }
 }
