@@ -110,14 +110,34 @@ public class OrderRepository {
         return query.getResultList();
     }
 
-    // v3
+    // v3 ToOne
     // fetch join
     // 한번쿼리로 order, member 조인 셀렉트 절에 넣어놓고 한번에 가져온다
     // LAZY를 무시하며 프록시를 사용하지 않고 값을 다 채워서 가져온다
     public List<Order> findAllWithMemberDelivery() {
+        return getQuery().getResultList();
+    }
+
+    public List<Order> findAllWithMemberDelivery(int offset, int limit) {
+        return getQuery()
+                .setFirstResult(offset)
+                .setMaxResults(limit)
+                .getResultList();
+    }
+
+    private TypedQuery<Order> getQuery() {
         return em.createQuery("select o from Order o" +
+                " join fetch o.member m" +
+                " join fetch o.delivery d", Order.class);
+    }
+
+    // v3 ToMany
+    public List<Order> findAllWithItem() {
+        return em.createQuery("select distinct o from Order o" +
                         " join fetch o.member m" +
-                        " join fetch o.delivery d", Order.class)
+                        " join fetch o.delivery d" +
+                        " join fetch o.orderItems oi" +
+                        " join fetch oi.item i", Order.class)
                 .getResultList();
     }
 
