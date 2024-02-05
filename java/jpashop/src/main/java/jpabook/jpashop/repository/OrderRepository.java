@@ -6,13 +6,13 @@ import jakarta.persistence.criteria.*;
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.domain.Order;
 import jpabook.jpashop.domain.OrderSearch;
+import jpabook.jpashop.repository.order.simplequery.OrderSimpleQueryDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Repository
 @RequiredArgsConstructor
@@ -109,5 +109,17 @@ public class OrderRepository {
         TypedQuery<Order> query = em.createQuery(cq).setMaxResults(1000); //최대 1000건
         return query.getResultList();
     }
+
+    // v3
+    // fetch join
+    // 한번쿼리로 order, member 조인 셀렉트 절에 넣어놓고 한번에 가져온다
+    // LAZY를 무시하며 프록시를 사용하지 않고 값을 다 채워서 가져온다
+    public List<Order> findAllWithMemberDelivery() {
+        return em.createQuery("select o from Order o" +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d", Order.class)
+                .getResultList();
+    }
+
 
 }

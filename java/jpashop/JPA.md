@@ -82,3 +82,9 @@ no-wrapping [m1, m2, ...]
 
 API 성능 최적화
 등록, 수정에서는 성능문제가 많이 발생하지 않는다
+
+적용순서
+1. DTO
+2. Fetch Join
+3. DTO 직접 조회
+4. Native SQL || Spring JDBC Template
