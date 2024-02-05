@@ -66,7 +66,7 @@ public class OrderSimpleApiController {
     }
 
     // v4
-    // 화면에 최적화는 되었으나 재사용성이 없다
+    // 화면에 최적화는 되었으나 재사용 부족
     // readonly
     // 코드가 v3에 비해 길어진다
     // 생각보다 v3보다 드라마틱하게 성능 차이가 나지않는다
