@@ -52,7 +52,7 @@ public class InitDb {
             Book book1 = createBook("SPRING1 BOOK",30000, 300);
             em.persist(book1);
 
-            Book book2 = createBook("SPRING@ BOOK",40000, 400);
+            Book book2 = createBook("SPRING2 BOOK",40000, 400);
             em.persist(book2);
 
             OrderItem orderItem1 = OrderItem.createOrderItem(book1, 30000, 3);
