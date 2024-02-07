@@ -110,6 +110,8 @@ public class OrderRepository {
         return query.getResultList();
     }
 
+    // QueryDSL
+//    public List<Order>
     // v3 ToOne
     // fetch join
     // 한번쿼리로 order, member 조인 셀렉트 절에 넣어놓고 한번에 가져온다
@@ -118,6 +120,7 @@ public class OrderRepository {
         return getQuery().getResultList();
     }
 
+    //3.1 ToMany
     public List<Order> findAllWithMemberDelivery(int offset, int limit) {
         return getQuery()
                 .setFirstResult(offset)

@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/*
+ * 직접 조회
+ * */
 @Repository
 @RequiredArgsConstructor
 public class OrderQueryRepository {
@@ -72,9 +75,10 @@ public class OrderQueryRepository {
         return result;
     }
 
+    //v6
     public List<OrderFlatDto> findOrderQueryDtoFlat() {
 
-        return em.createQuery("select new jpabook.jpashop.repository.order.query.OrderFlatDto(o.id, m.name, o.orderDate, o.status, d.address, i.name, oi.orderPrice, o.count)" +
+        return em.createQuery("select new jpabook.jpashop.repository.order.query.OrderFlatDto(o.id, m.name, o.orderDate, o.status, d.address, i.name, oi.orderPrice, oi.count)" +
                         " from Order o" +
                         " join o.member m" +
                         " join o.delivery d" +
