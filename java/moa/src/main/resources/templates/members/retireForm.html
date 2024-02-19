@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: header}">
+    <title>Retired</title>
+</head>
+<body>
+
+<div class="container">
+    <div th:replace="~{fragments/bodyHeader :: bodyHeader}"></div>
+
+    <h3>탈퇴</h3>
+    <th:block th:if="${retireFail}">
+        <div th:text="${retireFail}" class="fw-semibold text-bg-danger">
+        </div>
+    </th:block>
+    <div class="d-md-flex justify-content-center">
+        <form action="/members/retire" th:object="${memberForm}" method="post">
+            <!--        <th:block><input type="hidden" th:value="*{id}" th:field="*{id}"/></th:block>-->
+            <div class="form-floating mb-3">
+                <p>탈퇴 시 귀하의 모든 정보가 삭제됩니다.</p>
+                <p>정말로 탈퇴하시겠습니까?</p>
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary">탈퇴하기</button>
+                <a href="/members/info">
+                    <button type="button" class="btn btn-primary">뒤로가기</button>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

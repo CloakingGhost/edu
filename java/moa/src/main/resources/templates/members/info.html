@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: header}">
+    <title>Info</title>
+</head>
+<body>
+
+<div class="container d-md-flex justify-content-md-center">
+    <div th:replace="~{fragments/bodyHeader :: bodyHeader}"></div>
+
+    <h3>회원 정보 변경</h3>
+    <div th:object="${memberForm}">
+        <table class="table border">
+            <tbody>
+            <tr>
+                <th>등급</th>
+                <td th:text="${#object.role == T(com.moa.domain.RoleStatus).USER ? '일반회원' : '관리자'}"></td>
+            </tr>
+            <tr>
+                <th>이름</th>
+                <td th:text="*{name}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="d-md-flex justify-content-md-around">
+        <a href="/members/update" class="link-underline link-underline-opacity-0">
+            <button type="button" class="btn btn-primary">수정하기</button>
+        </a>
+        <a href="/members/retire"
+           class="link-secondary link-underline-opacity-0">탈퇴하기</a>
+    </div>
+
+</div>
+
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

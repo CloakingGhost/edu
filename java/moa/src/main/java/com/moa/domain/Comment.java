@@ -1,5 +1,6 @@
 package com.moa.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,9 +28,13 @@ public class Comment {
     @Setter
     private Board board;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_id")
+    private Comment parent;
+
     //일대다
-    @OneToMany(mappedBy = "comment", cascade = CascadeType.ALL)
-    private final List<Reply> replies = new ArrayList<>();
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
+    private List<Comment> childs = new ArrayList<>();
 
     // 기본생성자 사용 금지
     protected Comment() {
@@ -40,4 +45,5 @@ public class Comment {
         this.commentDate = commentDate;
         this.board = board;
     }
+
 }

@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -16,8 +17,16 @@ public class MemberRepository {
         em.persist(member);
     }
 
-    public Member findById(Long id) {
-        return em.find(Member.class, id);
+    public Optional<Member> findById(Long id) {
+        return Optional.ofNullable(em.find(Member.class, id));
+    }
+
+    public Optional<Member> findByName(String name) {
+        List<Member> m = em.createQuery("select m from Member m where name = :name", Member.class)
+                .setParameter("name", name)
+                .getResultList();
+        return m.stream().findAny();
+
     }
 
     public List<Member> findAll() {
@@ -25,13 +34,8 @@ public class MemberRepository {
                 .getResultList();
     }
 
-    public Member findByName(String name) {
-        return em.createQuery("select m from Member m where name = :name", Member.class)
-                .setParameter("name", name)
-                .getSingleResult();
-    }
-
     public void deleteById(Long memberId) {
-        em.remove(findById(memberId));
+        Optional<Member> findMember = findById(memberId);
+        findMember.ifPresent(em::remove);
     }
 }

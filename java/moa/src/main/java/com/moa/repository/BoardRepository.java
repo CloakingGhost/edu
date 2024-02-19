@@ -21,8 +21,25 @@ public class BoardRepository {
     }
 
     //fetch join 사용
+    //Dto로 받아야함
     public List<Board> findAll() {
         return em.createQuery("select b from Board b", Board.class)
+                .getResultList();
+    }
+
+    public List<Board> findAllWithJoin() {
+        String select = "b.board_id, b.member_id, b.title, b.content, b.post_date, c.comment_id, c.text, c.comment_date, r.reply_id, r.reply_text, r.reply_date";
+        String jpql = "select " + select +
+                " from Board b join Comment c on b.id = c.board.id join Reply r on c.id = r.comment.id";
+        return em.createQuery(jpql, Board.class)
+                .getResultList();
+    }
+
+    public List<Board> findAllWithFetch() {
+        String jpql = "select b from Board b" +
+                " left join fetch b.comments p" +
+                " left join fetch p.childs c";
+        return em.createQuery(jpql, Board.class)
                 .getResultList();
     }
 }

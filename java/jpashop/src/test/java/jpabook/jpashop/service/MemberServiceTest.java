@@ -31,7 +31,8 @@ class MemberServiceTest {
 
         //then
 //        em.flush(); // insert SQL 확인 가능
-        Assertions.assertThat(member).isEqualTo(memberRepository.findOne(savedId));
+//        Assertions.assertThat(member).isEqualTo(memberRepository.findOne(savedId));
+        Assertions.assertThat(member).isEqualTo(memberRepository.findById(savedId).get());
 //         @Transactional에 의해 rollback 됨
     }
 

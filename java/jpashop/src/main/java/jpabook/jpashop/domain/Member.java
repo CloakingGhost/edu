@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Getter @Setter
 public class Member {
-    @Id @GeneratedValue()
+    @Id @GeneratedValue
     private Long id;
 
     @NotEmpty

@@ -17,6 +17,10 @@ public class Reply {
 
     private LocalDateTime replyDate;
 
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @Column(name = "member_id")
+//    private Member member;
+
     // 다대일
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "comment_id")

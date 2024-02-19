@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: header}">
+    <title>Update</title>
+</head>
+<body>
+
+<div class="container">
+    <div th:replace="~{fragments/bodyHeader :: bodyHeader}"></div>
+
+    <h3>회원 정보 변경</h3>
+    <form action="/members/update" th:object="${memberForm}" method="post">
+        <th:block><input type="hidden" th:value="*{id}" th:field="*{id}"/></th:block>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" th:field="*{name}">
+            <label th:for="name" class="form-label">이름</label>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">변경하기</button>
+    </form>
+</div>
+
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

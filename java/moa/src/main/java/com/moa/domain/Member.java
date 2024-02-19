@@ -6,6 +6,7 @@ import lombok.Setter;
 
 @Entity
 @Getter
+
 public class Member {
 
     @Id
@@ -13,8 +14,10 @@ public class Member {
     @Column(name = "member_id")
     private Long id;
 
+    @Setter
     private String name;
 
+    @Setter
     @Enumerated(EnumType.STRING)
     private RoleStatus role; // ADMIN, USER
 
